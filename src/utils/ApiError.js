@@ -3,7 +3,7 @@ class ApiError extends Error{
         statusCode,
         message="something went wrong",
         error=[],
-        statck="",
+        stack="",
 
     ){
         super(message)                 //super is construtor of parent class and message is parameter
@@ -13,8 +13,8 @@ class ApiError extends Error{
         this.success=false             //This property can be used to indicate whether an operation or request associated with the error was successful or not.
         this.errors= errors       // assign a property called errors.
         
-        if(statck){
-            this.stack=statck
+        if(stack){
+            this.stack=stack
         } else{
             Error.captureStackTrace(this,this.constructor)
         }
