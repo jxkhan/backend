@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       trim: true,
     },
-    fullname: {
+    fullName: {
       type: String,
       required: true,
       trim: true,
@@ -57,7 +57,7 @@ const userSchema = new mongoose.Schema(
 userSchema.pre("save", async function (next) {  
   if (!this.isModified("password")) return next(); //password encryption
 
-  this.password = bcrypt.hash(this.password, 10); //10 is round here
+  this.password = await bcrypt.hash(this.password, 10); //10 is round here
   next();
 });
 
@@ -94,4 +94,6 @@ userSchema.methods.generateRefreshToken= function()
 
 }
 
-export const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
+
+export { User };

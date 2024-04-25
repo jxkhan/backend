@@ -11,7 +11,7 @@ class ApiError extends Error{
         this.data=null                 //to store additional data related to the error if needed
         this.message=message
         this.success=false             //This property can be used to indicate whether an operation or request associated with the error was successful or not.
-        this.errors= errors       // assign a property called errors.
+        this.errors= error       // assign a property called errors.
         
         if(stack){
             this.stack=stack
