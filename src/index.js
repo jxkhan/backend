@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 import { app } from "./app.js"
 
 
-dotenv.config({
-  path: "./env",
+dotenv.config({        //dotenv: load environment variables from a special file.
+  path: "./env",      //config: to load envirnoment variables
 });
 
 connectDB()
